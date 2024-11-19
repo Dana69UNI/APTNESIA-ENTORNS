@@ -26,6 +26,7 @@ public class characterMovement : MonoBehaviour
     {
 
         inputManage();
+      
     }
 
    void FixedUpdate()

@@ -23,8 +23,8 @@ public class objInteraction : MonoBehaviour
         if(Grab.action.IsPressed())
         {
 
-            Vector3 direction = intChar.position - transform.position;
-            rb.AddForce(direction.normalized * forceStrength * Time.deltaTime, ForceMode.VelocityChange);
+            //Vector3 direction = intChar.position - transform.position;
+            //rb.AddForce(direction.normalized * forceStrength * Time.deltaTime, ForceMode.VelocityChange);
 
         }
     }

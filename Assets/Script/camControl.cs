@@ -9,8 +9,8 @@ public class camControl : MonoBehaviour
     Camera cam;
     public InputActionReference look; //Coger los inputs del apartado LOOK de nuestro playerInput
     private Vector2 inputDirection; //vector para guardar los inputs
-    private float sensx = 180f; //sensibilidad del raton horizontal
-    private float sensy = 125f; //sensibilidad del raton vertical
+    private float sensx = 120f; //sensibilidad del raton horizontal
+    private float sensy = 80f; //sensibilidad del raton vertical
 
     float mouseX; //donde guardaremos el input solo de x
     float mouseY;//donde guardamos el input solo de y

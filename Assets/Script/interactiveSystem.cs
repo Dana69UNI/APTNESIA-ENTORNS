@@ -6,7 +6,7 @@ using UnityEngine;
 public class interactiveSystem : MonoBehaviour
 {
     public Transform intRay;
-    private float MaxDistance = 10f;
+    public float MaxDistance = 1.2f;
     public LayerMask Interactive;
     public static Action interFound; //creo una accion InterFound, esto lo que hace es enviar un aviso a todos los objetos que esten suscritos a ella así no hay que hacer rollos raros para interactuar entre diferentes cosas.
     public static Action interNotFound;

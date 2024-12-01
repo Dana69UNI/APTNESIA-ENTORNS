@@ -12,6 +12,7 @@ public class uiInteractive : MonoBehaviour
         interactiveSystem.interNotFound += Hide;
     }
 
+
     public void Show()
     {
        

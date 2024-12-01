@@ -13,8 +13,8 @@ public class objInteraction : MonoBehaviour
     public InputActionReference Throw;
     public Transform intChar;
     private float forceStrength = 150f;
-    private float dragStrength = 28f;
-    private float aDragStrength = 20f;
+    //private float dragStrength = 28f;
+    //private float aDragStrength = 20f;
     private Rigidbody rb;
     bool grabbable = false;
 

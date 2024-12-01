@@ -1,11 +1,13 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CajaFuerteInteraction : MonoBehaviour
 {
-    public GameObject UICaja; // Asigna el panel de la UI en el inspector.
+    public GameObject UICaja; // UICaja es un Empty que tiene el panel y los botones, el canvas tiene que estar SIEMPRE activo, o almenos mejor si lo esta.
     public float distanciaInteraccion = 3f; // Distancia para interactuar.
     private GameObject playerScripts;
     private Transform jugador; // Referencia al jugador.
+    public InputActionReference interact;
 
     void Start()
     {
@@ -20,13 +22,13 @@ public class CajaFuerteInteraction : MonoBehaviour
         if (Vector3.Distance(jugador.position, transform.position) < distanciaInteraccion)
         {
 
-            if (Input.GetKeyDown(KeyCode.E)) // Tecla para interactuar.
+            if (interact.action.IsPressed()) // Tecla para interactuar.
             {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 playerScripts.GetComponent<camControl>().enabled = false;
                 UICaja.SetActive(true); // Muestra el panel.
-                Time.timeScale = 0; // Pausa el juego.
+                
             }
         }
     }
@@ -37,6 +39,6 @@ public class CajaFuerteInteraction : MonoBehaviour
         playerScripts.GetComponent<camControl>().enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        Time.timeScale = 1; // Reanuda el juego.
+       
     }
 }

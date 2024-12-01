@@ -42,7 +42,7 @@ public class interactiveSystem : MonoBehaviour
     public void CheckInteractive() //checkinteractive es una funcion para ver que lo que hay delante del jugador tiene la Layer Interactive
     {
         RaycastHit hit; //Variable de cuando el raycast choca con un objeto
-        Debug.Log("Funciono");
+     
         if (Physics.Raycast(intRay.position, intRay.forward, //defines la posicion donde empieza (la posicion del empty interactiveRay), para donde va (forward), y que choque antes de la MaxDistance
             out hit,
             MaxDistance,

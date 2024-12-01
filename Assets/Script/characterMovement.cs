@@ -11,7 +11,7 @@ using UnityEngine.Windows;
 public class characterMovement : MonoBehaviour
 {
     private Rigidbody rb; //Coge el rigidbody del personaje
-    private float moveSpeed = 20.0f; //la velocidad
+    private float moveSpeed = 30.0f; //la velocidad
     private float objDrag = 5f; //drag para que el rb no se resbale
     public InputActionReference move; //VER INPUTS, lo necesitamos para que lea los valores del WASD o del Stick del mando para mover al personaje
     private Vector2 inputDirection; //el vector 2 donde guardamos los valores

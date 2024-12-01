@@ -6,7 +6,7 @@ public class CodigoVerificacion : MonoBehaviour
     public TMP_InputField input1; // Campos de entrada de TextMeshPro.
     public TMP_InputField input2;
     public TMP_InputField input3;
-
+    public CajaFuerteInteraction cajaFuerteInt;
     public string codigoCorrecto = "123"; // Código correcto para abrir la caja fuerte.
     public GameObject cajaFuerte; // Asigna la caja fuerte en el inspector.
 
@@ -27,6 +27,7 @@ public class CodigoVerificacion : MonoBehaviour
 
     void AbrirCaja()
     {
+        cajaFuerteInt.CerrarPanel();
         Debug.Log("¡Caja Abierta!"); // Mensaje en la consola.
         Destroy(cajaFuerte); // Cambia esto por una animación si tienes una.
     }

@@ -806,7 +806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Grab: {fileID: 5967064783215274357, guid: 28c57f861d3a14f4f81002e5a1958b7a, type: 3}
-  Throw: {fileID: 0}
+  Throw: {fileID: -6072138600726929152, guid: 28c57f861d3a14f4f81002e5a1958b7a, type: 3}
   intChar: {fileID: 1638749092}
 --- !u!1001 &153112302
 PrefabInstance:
@@ -930,10 +930,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.5471726
+  m_Height: 1.5999726
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.014060795, y: 0.2000137, z: -0.03311193}
 --- !u!23 &170365483
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1071,6 +1071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move: {fileID: -3999747364761104873, guid: 28c57f861d3a14f4f81002e5a1958b7a, type: 3}
+  steepRay: {fileID: 0}
 --- !u!114 &170365491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1097,7 +1098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intRay: {fileID: 720684930}
-  MaxDistance: 10
+  MaxDistance: 1.4
   Interactive:
     serializedVersion: 2
     m_Bits: 64

@@ -39,9 +39,9 @@ public class objInteraction : MonoBehaviour
 
                 if(Throw.action.IsPressed())
                 {
-                    
+                    NoGrab();
                     rb.AddForce(intChar.forward * forceStrength * Time.deltaTime, ForceMode.VelocityChange);
-                    
+                    NoGrab();
                 }
             }
             else

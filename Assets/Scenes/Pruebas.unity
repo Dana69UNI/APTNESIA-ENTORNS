@@ -1071,7 +1071,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move: {fileID: -3999747364761104873, guid: 28c57f861d3a14f4f81002e5a1958b7a, type: 3}
-  steepRay: {fileID: 0}
 --- !u!114 &170365491
 MonoBehaviour:
   m_ObjectHideFlags: 0

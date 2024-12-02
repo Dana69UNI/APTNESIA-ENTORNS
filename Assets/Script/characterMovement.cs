@@ -39,7 +39,7 @@ public class characterMovement : MonoBehaviour
 
         OnMove();
   
-
+        
     }
 
    

@@ -56,6 +56,7 @@ public class objInteraction : MonoBehaviour
             //rb.drag = 0f;
             //rb.angularDrag = 0f;
             //rb.useGravity = true;
+            
         }
 
     }

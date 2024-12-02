@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections;
+using FMOD.Studio;
 
 
 
@@ -16,6 +17,12 @@ public class CarlosAI : MonoBehaviour
 
     private bool isBeingWatched = false;
     private Transform currentHidingSpot;
+  
+  
+    private void Start()
+    {
+        
+    }
 
     void Update()
     {
@@ -33,6 +40,8 @@ public class CarlosAI : MonoBehaviour
     private void MoveTowardsCharacter()
     {
         Vector3 direction = (character.position - transform.position).normalized;
+
+
 
         if (Vector3.Distance(character.position, transform.position) > hideDistance)
         {
@@ -102,6 +111,11 @@ public class CarlosAI : MonoBehaviour
     public void SetBeingWatched(bool watched)
     {
         isBeingWatched = watched;
+    }
+
+    private void UpdateSound()
+    {
+      
     }
 }
 

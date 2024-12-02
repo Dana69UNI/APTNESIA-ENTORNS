@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class trashManager : MonoBehaviour
 {
-    private void OnCollisionEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Trash")) // Verifica si el objeto es basura
         {

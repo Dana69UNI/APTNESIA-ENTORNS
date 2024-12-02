@@ -4402,9 +4402,9 @@ GameObject:
   m_Component:
   - component: {fileID: 815286224}
   - component: {fileID: 815286227}
-  - component: {fileID: 815286226}
   - component: {fileID: 815286225}
   - component: {fileID: 815286228}
+  - component: {fileID: 815286229}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -4474,14 +4474,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!81 &815286226
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 815286223}
-  m_Enabled: 1
 --- !u!20 &815286227
 Camera:
   m_ObjectHideFlags: 0
@@ -4549,6 +4541,20 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &815286229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815286223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 170365481}
 --- !u!1 &815496491
 GameObject:
   m_ObjectHideFlags: 0
@@ -5631,7 +5637,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

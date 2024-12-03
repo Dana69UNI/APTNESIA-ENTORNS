@@ -2,6 +2,8 @@ using UnityEngine;
 using System;
 using System.Collections;
 using FMOD.Studio;
+using FMODUnity;
+
 
 
 
@@ -16,16 +18,21 @@ public class CarlosAI : MonoBehaviour
     public LayerMask hidingSpotLayer;   // Capa de los escondites
 
     private bool isBeingWatched = false;
+    private bool isSoundPlaying=false;
     private Transform currentHidingSpot;
-  
+
+   
+    [SerializeField] private EventInstance respiracionSFX;
   
     private void Start()
     {
-        
+        respiracionSFX = AudioManager.Instance.CreateEventInstance(FMODEvents.instance.Respira);
+
     }
 
     void Update()
     {
+        UpdateSound();
         if (isBeingWatched)
         {
             HideOrRetreat(); // Carlos busca esconderse o se aleja
@@ -41,12 +48,13 @@ public class CarlosAI : MonoBehaviour
     {
         Vector3 direction = (character.position - transform.position).normalized;
 
-
+        
 
         if (Vector3.Distance(character.position, transform.position) > hideDistance)
         {
             transform.position += direction * moveSpeed * Time.deltaTime;
         }
+
     }
 
     // Método para buscar esconderse o alejarse
@@ -82,7 +90,7 @@ public class CarlosAI : MonoBehaviour
         {
             Vector3 direction = (currentHidingSpot.position - transform.position).normalized;
             transform.position += direction * moveSpeed * Time.deltaTime;
-            UnityEngine.Debug.Log("escondi");
+           
             // Si ya está cerca del escondite, detenerse
             if (Vector3.Distance(transform.position, currentHidingSpot.position) < hideDistance)
             {
@@ -115,7 +123,35 @@ public class CarlosAI : MonoBehaviour
 
     private void UpdateSound()
     {
-      
+        
+
+        PLAYBACK_STATE playbackState;
+        respiracionSFX.getPlaybackState(out playbackState);
+        
+        Debug.Log("Playback State: " + playbackState);
+
+        // Si el sonido está detenido y no se ha iniciado, empieza a reproducirlo
+        if (playbackState == PLAYBACK_STATE.STOPPED && !isSoundPlaying)
+        {
+            Debug.Log("Starting sound...");
+            respiracionSFX.start();
+            isSoundPlaying = true;  // Marca que el sonido está en reproducción
+        }
+        else if (playbackState != PLAYBACK_STATE.STOPPED && isSoundPlaying)
+        {
+            // Si el sonido está en reproducción, lo dejamos continuar
+            Debug.Log("Sound is playing...");
+        }
+    }
+
+    private void StopSound()
+    {
+        if (respiracionSFX.isValid() && isSoundPlaying)
+        {
+            Debug.Log("Stopping sound...");
+            respiracionSFX.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            isSoundPlaying = false;  // Marca que el sonido se detuvo
+        }
     }
 }
 

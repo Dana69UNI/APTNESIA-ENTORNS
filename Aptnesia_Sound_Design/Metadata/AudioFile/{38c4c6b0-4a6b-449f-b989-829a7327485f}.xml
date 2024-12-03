@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{38c4c6b0-4a6b-449f-b989-829a7327485f}">
+		<property name="assetPath">
+			<value>271045__kodack__male-breathing-slow.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>13.384625850340136</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{bc4de286-bc2c-4966-a41a-744dac66f223}</destination>
+		</relationship>
+	</object>
+</objects>

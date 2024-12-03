@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{79c1140d-46a9-4a51-84d0-b03618d723c2}">
+	<object class="AudioFile" id="{425be1fe-f4cd-4422-b685-b9c05a86bedd}">
 		<property name="assetPath">
-			<value>769801__thelastoneonearth__groovy-winner-end-version.wav</value>
+			<value>CarlosRespiracionPrueba.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
@@ -11,7 +14,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>5.8929583333333335</value>
+			<value>11.064</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{bc4de286-bc2c-4966-a41a-744dac66f223}</destination>

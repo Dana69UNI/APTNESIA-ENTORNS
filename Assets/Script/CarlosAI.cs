@@ -19,15 +19,18 @@ public class CarlosAI : MonoBehaviour
 
     private bool isBeingWatched = false;
     private bool isSoundPlaying=false;
+    private bool isNormalSoundPlaying = false;  
+    private bool isAgitatedSoundPlaying = false;  
     private Transform currentHidingSpot;
 
    
     [SerializeField] private EventInstance respiracionSFX;
-  
+    [SerializeField] private EventInstance respiracionAgitadaSFX;
+
     private void Start()
     {
         respiracionSFX = AudioManager.Instance.CreateEventInstance(FMODEvents.instance.Respira);
-
+        respiracionAgitadaSFX = AudioManager.Instance.CreateEventInstance(FMODEvents.instance.RespiraAgit);
     }
 
     void Update()
@@ -121,37 +124,74 @@ public class CarlosAI : MonoBehaviour
         isBeingWatched = watched;
     }
 
+
+
     private void UpdateSound()
     {
-        
+        PLAYBACK_STATE playbackStateNormal;
+        PLAYBACK_STATE playbackStateAgitada;
 
-        PLAYBACK_STATE playbackState;
-        respiracionSFX.getPlaybackState(out playbackState);
-        
-        Debug.Log("Playback State: " + playbackState);
+        // Obtener los estados de reproducción de ambos sonidos
+        respiracionSFX.getPlaybackState(out playbackStateNormal);
+        respiracionAgitadaSFX.getPlaybackState(out playbackStateAgitada);
 
-        // Si el sonido está detenido y no se ha iniciado, empieza a reproducirlo
-        if (playbackState == PLAYBACK_STATE.STOPPED && !isSoundPlaying)
+        Debug.Log("Playback State Normal: " + playbackStateNormal);
+        Debug.Log("Playback State Agitada: " + playbackStateAgitada);
+
+        // Si está siendo observado, reproducir respiración agitada
+        if (isBeingWatched)
         {
-            Debug.Log("Starting sound...");
-            respiracionSFX.start();
-            isSoundPlaying = true;  // Marca que el sonido está en reproducción
+            // Si el sonido agitado no está en reproducción, iniciar reproducción
+            if (playbackStateAgitada == PLAYBACK_STATE.STOPPED && !isAgitatedSoundPlaying)
+            {
+                Debug.Log("Starting agitated breathing...");
+                respiracionAgitadaSFX.start();
+                isAgitatedSoundPlaying = true;  // Marca que la respiración agitada está en reproducción
+            }
+
+            // Detener la respiración normal si está sonando
+            if (playbackStateNormal != PLAYBACK_STATE.STOPPED && isNormalSoundPlaying)
+            {
+                StopNormalBreathing();
+            }
         }
-        else if (playbackState != PLAYBACK_STATE.STOPPED && isSoundPlaying)
+        else
         {
-            // Si el sonido está en reproducción, lo dejamos continuar
-            Debug.Log("Sound is playing...");
+            // Si no está siendo observado, reproducir respiración normal
+            if (playbackStateNormal == PLAYBACK_STATE.STOPPED && !isNormalSoundPlaying)
+            {
+                Debug.Log("Starting normal breathing...");
+                respiracionSFX.start();
+                isNormalSoundPlaying = true;  // Marca que la respiración normal está en reproducción
+            }
+
+            // Detener la respiración agitada si está sonando
+            if (playbackStateAgitada != PLAYBACK_STATE.STOPPED && isAgitatedSoundPlaying)
+            {
+                StopAgitatedBreathing();
+            }
         }
     }
 
-    private void StopSound()
+    private void StopNormalBreathing()
     {
-        if (respiracionSFX.isValid() && isSoundPlaying)
+        if (respiracionSFX.isValid() && isNormalSoundPlaying)
         {
-            Debug.Log("Stopping sound...");
+            Debug.Log("Stopping normal breathing...");
             respiracionSFX.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            isSoundPlaying = false;  // Marca que el sonido se detuvo
+            isNormalSoundPlaying = false;  // Marca que la respiración normal se detuvo
         }
     }
+
+    private void StopAgitatedBreathing()
+    {
+        if (respiracionAgitadaSFX.isValid() && isAgitatedSoundPlaying)
+        {
+            Debug.Log("Stopping agitated breathing...");
+            respiracionAgitadaSFX.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            isAgitatedSoundPlaying = false;  // Marca que la respiración agitada se detuvo
+        }
+    }
+
 }
 

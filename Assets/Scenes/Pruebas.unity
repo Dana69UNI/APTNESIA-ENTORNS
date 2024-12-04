@@ -2765,7 +2765,7 @@ GameObject:
   - component: {fileID: 343222298}
   - component: {fileID: 343222297}
   - component: {fileID: 343222296}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: papel_acertijo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2786,6 +2786,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paperModel: {fileID: 343222295}
   paperUI: {fileID: 37785255}
+  Interact: {fileID: 1288144579149797546, guid: 28c57f861d3a14f4f81002e5a1958b7a,
+    type: 3}
 --- !u!65 &343222297
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3659,7 +3661,7 @@ GameObject:
   - component: {fileID: 537767723}
   - component: {fileID: 537767722}
   - component: {fileID: 537767721}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: papel_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3678,8 +3680,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a10cea60dc800448b3a1d820b4caaac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paperModel: {fileID: 0}
+  paperModel: {fileID: 537767720}
   paperUI: {fileID: 243567309}
+  Interact: {fileID: 1288144579149797546, guid: 28c57f861d3a14f4f81002e5a1958b7a,
+    type: 3}
 --- !u!65 &537767722
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5712,7 +5716,7 @@ GameObject:
   - component: {fileID: 931900479}
   - component: {fileID: 931900478}
   - component: {fileID: 931900477}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: papel_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5731,8 +5735,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a10cea60dc800448b3a1d820b4caaac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paperModel: {fileID: 0}
+  paperModel: {fileID: 931900476}
   paperUI: {fileID: 467770899}
+  Interact: {fileID: 1288144579149797546, guid: 28c57f861d3a14f4f81002e5a1958b7a,
+    type: 3}
 --- !u!65 &931900478
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10696,7 +10702,7 @@ GameObject:
   - component: {fileID: 2062198044}
   - component: {fileID: 2062198043}
   - component: {fileID: 2062198042}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: papel_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10715,8 +10721,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a10cea60dc800448b3a1d820b4caaac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paperModel: {fileID: 0}
+  paperModel: {fileID: 2062198041}
   paperUI: {fileID: 1220269624}
+  Interact: {fileID: 1288144579149797546, guid: 28c57f861d3a14f4f81002e5a1958b7a,
+    type: 3}
 --- !u!65 &2062198043
 BoxCollider:
   m_ObjectHideFlags: 0

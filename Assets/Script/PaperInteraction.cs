@@ -1,4 +1,9 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PaperInteraction : MonoBehaviour
 {
@@ -6,6 +11,7 @@ public class PaperInteraction : MonoBehaviour
     private bool isPaperOpen = false;  // Variable para saber si el Canvas está abierto
     public GameObject paperModel;      // Objeto del papel en la escena
     public GameObject paperUI;         // UI para mostrar el papel ampliado
+    public InputActionReference Interact;
 
     void Start()
     {
@@ -18,7 +24,7 @@ public class PaperInteraction : MonoBehaviour
     void Update()
     {
         // Detectar si el jugador presiona "E" cuando está cerca
-        if (isPlayerNear && Input.GetKeyDown(KeyCode.E))
+        if (isPlayerNear && Interact.action.IsPressed())
         {
             TogglePaperUI();
         }
@@ -39,6 +45,12 @@ public class PaperInteraction : MonoBehaviour
         {
             isPlayerNear = false;
             Debug.Log("Saliste de la zona del papel");
+
+            // Si el jugador se aleja y el papel estaba abierto, lo cerramos
+            if (isPaperOpen)
+            {
+                TogglePaperUI();
+            }
         }
     }
 

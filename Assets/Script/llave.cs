@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class llave : MonoBehaviour
 {
     public InputActionReference Interact;
+    private bool isPlayerNear = false;
     [SerializeField] abrirpuerta _puertaopen;
 
     private void Start()
@@ -17,7 +18,7 @@ public class llave : MonoBehaviour
 
     private void pickable()
     {
-        if (Interact.action.IsPressed())
+        if (Interact.action.IsPressed() && isPlayerNear)
         {
             _puertaopen.DoorStatus();
             Destroy(gameObject);
@@ -28,13 +29,22 @@ public class llave : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (collision.collider.CompareTag("Player"))
+        if (collider.CompareTag("Player"))
         {
-            //_puertaopen.DoorStatus();
-            //Destroy(gameObject);
 
+            isPlayerNear = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider collider)
+    {
+        if (collider.CompareTag("Player"))
+        {
+
+            isPlayerNear = false;
         }
     }
 }
+

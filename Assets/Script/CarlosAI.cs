@@ -135,8 +135,8 @@ public class CarlosAI : MonoBehaviour
         respiracionSFX.getPlaybackState(out playbackStateNormal);
         respiracionAgitadaSFX.getPlaybackState(out playbackStateAgitada);
 
-        Debug.Log("Playback State Normal: " + playbackStateNormal);
-        Debug.Log("Playback State Agitada: " + playbackStateAgitada);
+        //Debug.Log("Playback State Normal: " + playbackStateNormal);
+        //Debug.Log("Playback State Agitada: " + playbackStateAgitada);
 
         // Si está siendo observado, reproducir respiración agitada
         if (isBeingWatched)
@@ -144,7 +144,7 @@ public class CarlosAI : MonoBehaviour
             // Si el sonido agitado no está en reproducción, iniciar reproducción
             if (playbackStateAgitada == PLAYBACK_STATE.STOPPED && !isAgitatedSoundPlaying)
             {
-                Debug.Log("Starting agitated breathing...");
+                //Debug.Log("Starting agitated breathing...");
                 respiracionAgitadaSFX.start();
                 isAgitatedSoundPlaying = true;  // Marca que la respiración agitada está en reproducción
             }
@@ -160,7 +160,7 @@ public class CarlosAI : MonoBehaviour
             // Si no está siendo observado, reproducir respiración normal
             if (playbackStateNormal == PLAYBACK_STATE.STOPPED && !isNormalSoundPlaying)
             {
-                Debug.Log("Starting normal breathing...");
+                //Debug.Log("Starting normal breathing...");
                 respiracionSFX.start();
                 isNormalSoundPlaying = true;  // Marca que la respiración normal está en reproducción
             }
@@ -177,7 +177,7 @@ public class CarlosAI : MonoBehaviour
     {
         if (respiracionSFX.isValid() && isNormalSoundPlaying)
         {
-            Debug.Log("Stopping normal breathing...");
+            //Debug.Log("Stopping normal breathing...");
             respiracionSFX.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             isNormalSoundPlaying = false;  // Marca que la respiración normal se detuvo
         }
@@ -187,7 +187,7 @@ public class CarlosAI : MonoBehaviour
     {
         if (respiracionAgitadaSFX.isValid() && isAgitatedSoundPlaying)
         {
-            Debug.Log("Stopping agitated breathing...");
+        //    Debug.Log("Stopping agitated breathing...");
             respiracionAgitadaSFX.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             isAgitatedSoundPlaying = false;  // Marca que la respiración agitada se detuvo
         }

@@ -11,8 +11,8 @@ public class objInteraction : MonoBehaviour
 
     public InputActionReference Grab;
     public InputActionReference Throw;
-    public Transform intChar;
-    public Rigidbody _emptyRb;
+    private Transform intChar;
+    private Rigidbody _emptyRb;
     private Rigidbody rb;
     [SerializeField] private float grabSpring = 100f;  // Adjust grab strength values / SpringJoint values
     [SerializeField] private float grabDamper = 4.5f; // Adjust grab strength values / SpringJoint values
@@ -24,8 +24,12 @@ public class objInteraction : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        intChar = GameObject.Find("interactTransform").transform;
+        _emptyRb = GameObject.Find("interactTransform").GetComponent<Rigidbody>();
         _emptyRb.isKinematic = true;
+        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         interactiveSystem.interNotFound += NoGrab;
+
         
     }
     private void FixedUpdate()
@@ -45,7 +49,16 @@ public class objInteraction : MonoBehaviour
                 {
                     isGrabbed = true;
                     ApplySpringConstraint();
-                    rb.freezeRotation = true;
+                    if(rb.CompareTag("Door"))
+                    {
+                        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+                        
+                    }
+                    else
+                    {
+                        rb.freezeRotation = true;
+                    }
+                    
                 }
                 
             }
@@ -83,7 +96,8 @@ public class objInteraction : MonoBehaviour
                 spring = rb.gameObject.AddComponent<SpringJoint>();
                 spring.autoConfigureConnectedAnchor = false;
                 spring.connectedBody = _emptyRb;
-                spring.connectedAnchor = Vector3.zero;
+                spring.connectedAnchor = Vector3.zero;  
+                spring.anchor = Vector3.zero;
                 spring.spring = grabSpring;
                 spring.damper = grabDamper;
 
@@ -107,7 +121,15 @@ public class objInteraction : MonoBehaviour
     private void ResetShooting()
     {
         isGrabbed = false;
-        rb.freezeRotation = false;
+        if (rb.CompareTag("Door"))
+        {
+
+        }
+        else
+        {
+            rb.freezeRotation = false;
+        }
+            
         if (rb)
         {
 

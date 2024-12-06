@@ -5722,6 +5722,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8034400618107327449, guid: ddd6b44c329d41a4fbbcde47e22f2df8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.98784095
+      objectReference: {fileID: 0}
+    - target: {fileID: -8034400618107327449, guid: ddd6b44c329d41a4fbbcde47e22f2df8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8034400618107327449, guid: ddd6b44c329d41a4fbbcde47e22f2df8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.15546814
+      objectReference: {fileID: 0}
+    - target: {fileID: -8034400618107327449, guid: ddd6b44c329d41a4fbbcde47e22f2df8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.000000014901161
+      objectReference: {fileID: 0}
+    - target: {fileID: -8034400618107327449, guid: ddd6b44c329d41a4fbbcde47e22f2df8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -17.888
+      objectReference: {fileID: 0}
     - target: {fileID: -6281738825630516983, guid: ddd6b44c329d41a4fbbcde47e22f2df8,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -30564,7 +30589,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cajaFuerteInt: {fileID: 1227966941}
   codigoCorrecto: 426
-  cajaFuerte: {fileID: 1227966936}
   codigoEscrito: {fileID: 211766116}
 --- !u!4 &2144404684
 Transform:

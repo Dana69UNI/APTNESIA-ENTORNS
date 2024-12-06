@@ -23,6 +23,10 @@ public class llave : MonoBehaviour
             _puertaopen.DoorStatus();
             Destroy(gameObject);
         }
+        if (Interact.action.IsPressed())
+        {
+            UnityEngine.Debug.Log("Lejos");
+        }
     }
 
     private void Update()

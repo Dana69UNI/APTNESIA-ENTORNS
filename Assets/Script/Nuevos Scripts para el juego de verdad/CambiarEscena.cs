@@ -7,6 +7,6 @@ public class CambiarEscena : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(3); 
+        SceneManager.LoadScene(1); 
     }
 }

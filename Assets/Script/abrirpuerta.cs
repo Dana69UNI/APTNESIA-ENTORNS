@@ -11,7 +11,7 @@ public class abrirpuerta : MonoBehaviour
     {
         if (!isDoorLocked)
         {
-            LaPuerta.Play("opendoor");
+            LaPuerta.Play("abrirPuerta3");
         }
 
     }
@@ -19,7 +19,7 @@ public class abrirpuerta : MonoBehaviour
     {
         if (!isDoorLocked)
         {
-            LaPuerta.Play("opendoor");
+            LaPuerta.Play("abrirPuerta3");
         }
     }
 

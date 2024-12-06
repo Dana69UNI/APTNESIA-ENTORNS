@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class ActivarLuzTerror : MonoBehaviour
+public class CambiarEscena2 : MonoBehaviour
 {
-    public Animator Luz;
-
     private void OnTriggerEnter(Collider other)
     {
-        Luz.Play("parpadeo_luz");
+        SceneManager.LoadScene(4);
     }
 }

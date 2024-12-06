@@ -35,7 +35,7 @@ public class interactiveSystem : MonoBehaviour
         }
         else
         {
-            pickNotFound?.Invoke();
+            //pickNotFound?.Invoke();
         }
     }
 
@@ -55,9 +55,9 @@ public class interactiveSystem : MonoBehaviour
         }
       else
         {
-            interNotFound?.Invoke();
-            
-            
+            //interNotFound?.Invoke();
+
+
         }
        
     }

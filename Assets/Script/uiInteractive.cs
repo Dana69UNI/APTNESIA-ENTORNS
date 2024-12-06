@@ -5,7 +5,7 @@ using UnityEngine;
 public class uiInteractive : MonoBehaviour
 {
     
-    void Start()
+    void Awake()
     {
         gameObject.SetActive(false);
         interactiveSystem.interFound += Show; //se suscribe a la accion Interfound y si le llega el aviso hara la funcion Show()

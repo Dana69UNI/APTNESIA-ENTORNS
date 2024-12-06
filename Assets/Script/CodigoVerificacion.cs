@@ -7,9 +7,14 @@ public class CodigoVerificacion : MonoBehaviour
 {
     public CajaFuerteInteraction cajaFuerteInt;
     public string codigoCorrecto = "123"; // Código correcto para abrir la caja fuerte.
-    public GameObject cajaFuerte; // Asigna la caja fuerte en el inspector.
+    private GameObject cajaFuerte; // Asigna la caja fuerte en el inspector.
     private string codigoIngresado;
     public TMP_Text codigoEscrito;
+
+    private void Start()
+    {
+        cajaFuerte = GameObject.Find("CajaFuerte");
+    }
     public void VerificarCodigo()
     {
         // Concatena los valores ingresados.
@@ -37,6 +42,7 @@ public class CodigoVerificacion : MonoBehaviour
 
     public void BotonPress(int number)
     {
+        Debug.Log("pulsado");
         codigoIngresado += number.ToString();
         codigoEscrito.text = codigoIngresado;
     }

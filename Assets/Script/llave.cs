@@ -18,6 +18,7 @@ public class llave : MonoBehaviour
 
     private void pickable()
     {
+        Debug.Log("pickable");
         if (Interact.action.IsPressed() && isPlayerNear)
         {
             _puertaopen.DoorStatus();
@@ -39,6 +40,7 @@ public class llave : MonoBehaviour
         {
 
             isPlayerNear = true;
+            Debug.Log("aaa");
         }
     }
 

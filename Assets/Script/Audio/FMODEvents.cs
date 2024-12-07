@@ -13,6 +13,9 @@ public class FMODEvents : MonoBehaviour
 
     [field: Header("ResipiracionAgitadaSFX")]
     [field: SerializeField] public EventReference RespiraAgit { get; private set; }
+
+    [field: Header("Musica")]
+    [field: SerializeField] public EventReference Musica { get; private set; }
     private void Awake()
     {
         if(instance == null)

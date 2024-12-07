@@ -10,6 +10,8 @@ public class CodigoVerificacion : MonoBehaviour
     private GameObject cajaFuerte; // Asigna la caja fuerte en el inspector.
     private string codigoIngresado;
     public TMP_Text codigoEscrito;
+    [SerializeField] llave _llave;
+    [SerializeField] CajaFuerteInteraction _cajaFuerteInteraccion;
 
     private void Start()
     {
@@ -36,6 +38,8 @@ public class CodigoVerificacion : MonoBehaviour
     void AbrirCaja()
     {
         cajaFuerteInt.CerrarPanel();
+        _llave.safeToggle();
+        _cajaFuerteInteraccion.safeToggle();
         Debug.Log("¡Caja Abierta!"); // Mensaje en la consola.
         Destroy(cajaFuerte); // Cambia esto por una animación si tienes una.
     }
@@ -52,7 +56,7 @@ public class CodigoVerificacion : MonoBehaviour
         codigoEscrito.color = Color.red;
         codigoEscrito.text = "Incorrecto";
         yield return new WaitForSeconds(1);
-        Debug.Log("llego");
+       
         codigoEscrito.color = Color.white;
         codigoEscrito.text = null;
         codigoIngresado = null;

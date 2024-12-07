@@ -18,7 +18,6 @@ public class CarlosAI : MonoBehaviour
     public LayerMask hidingSpotLayer;   // Capa de los escondites
 
     private bool isBeingWatched = false;
-    private bool isSoundPlaying=false;
     private bool isNormalSoundPlaying = false;  
     private bool isAgitatedSoundPlaying = false;  
     private Transform currentHidingSpot;

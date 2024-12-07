@@ -10,11 +10,17 @@ public class interactiveSystem : MonoBehaviour
     public float MaxDistance = 0.7f;
     public LayerMask Interactive;
     public LayerMask Pickable;
-    public static Action interFound; //creo una accion InterFound, esto lo que hace es enviar un aviso a todos los objetos que esten suscritos a ella así no hay que hacer rollos raros para interactuar entre diferentes cosas.
-    public static Action interNotFound;
-    public static Action pickNotFound;
-    public static Action pickFound;
+    private uiInteractive _uiInteractive;
+    public uiPickable _uiPickable;
+    private GameObject lastPickable;
+    private GameObject lastInteracted;
    
+
+    private void Start()
+    {
+        _uiInteractive = gameObject.GetComponentInChildren<uiInteractive>();
+
+    }
 
     private void Update()
     {
@@ -31,11 +37,20 @@ public class interactiveSystem : MonoBehaviour
             Pickable))
         {
             //Debug.Log("Interactuable"); //si choca con algo y tiene la Layer Interactive pues empieza la funcion.
-            pickFound?.Invoke(); //Aqui invocamos la accion para que todo el que este suscrito haga lo suyo.
+            _uiPickable.Show();
+            if (Phit.collider != null) // Asegúrate de que existe un collider
+            {
+                Phit.collider.SendMessage("pick");
+                lastPickable = Phit.collider.gameObject;
+            }
         }
         else
         {
-            //pickNotFound?.Invoke();
+            _uiPickable.Hide();
+            if (lastPickable != null)
+            {
+                lastPickable.SendMessage("noPick");
+            }
         }
     }
 
@@ -49,18 +64,15 @@ public class interactiveSystem : MonoBehaviour
             Interactive))
         {
             //Debug.Log("Interactuable"); //si choca con algo y tiene la Layer Interactive pues empieza la funcion.
-            interFound?.Invoke(); //Aqui invocamos la accion para que todo el que este suscrito haga lo suyo.
-            hit.collider.SendMessage("CanGrab");
-            
+            if (hit.collider != null) // Asegúrate de que existe un collider
+            {
+                hit.collider.SendMessage("CanGrab");
+                _uiInteractive.Show();
+            }
         }
       else
         {
-            //interNotFound?.Invoke();
-
-
-        }
-       
+            _uiInteractive.Hide();
+        } 
     }
-
-
 }

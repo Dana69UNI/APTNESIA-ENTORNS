@@ -9,7 +9,8 @@ public class PaperInteraction : MonoBehaviour
 {
     private bool isPlayerNear = false;  // Variable para detectar proximidad del jugador
     private bool isPaperOpen = false;  // Variable para saber si el Canvas está abierto
- 
+    private bool CanPick = false;
+
     public GameObject paperModel;      // Objeto del papel en la escena
     public GameObject paperUI;         // UI para mostrar el papel ampliado
     public InputActionReference Interact;
@@ -21,9 +22,16 @@ public class PaperInteraction : MonoBehaviour
             paperUI.SetActive(false); // Asegurarse de que el UI esté oculto al inicio
         }
 
-        interactiveSystem.pickFound += pickable;
     }
 
+    private void noPick()
+    {
+        CanPick = false;
+    }
+    private void pick()
+    {
+        CanPick = true;
+    }
     private void pickable()
     {
    
@@ -37,7 +45,10 @@ public class PaperInteraction : MonoBehaviour
 
     void Update()
     {
-        
+        if(CanPick)
+        {
+            pickable();
+        }
     }
 
     private void OnTriggerEnter(Collider other)

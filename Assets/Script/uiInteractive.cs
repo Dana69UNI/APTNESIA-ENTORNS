@@ -5,14 +5,12 @@ using UnityEngine;
 public class uiInteractive : MonoBehaviour
 {
     
-    void Awake()
+    void Start()
     {
         gameObject.SetActive(false);
-        interactiveSystem.interFound += Show; //se suscribe a la accion Interfound y si le llega el aviso hara la funcion Show()
-        interactiveSystem.interNotFound += Hide;
        
-    }
 
+    }
 
     public void Show()
     {

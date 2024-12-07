@@ -28,9 +28,7 @@ public class objInteraction : MonoBehaviour
         _emptyRb = GameObject.Find("interactTransform").GetComponent<Rigidbody>();
         _emptyRb.isKinematic = true;
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
-        interactiveSystem.interNotFound += NoGrab;
 
-        
     }
     private void FixedUpdate()
     {
@@ -68,6 +66,7 @@ public class objInteraction : MonoBehaviour
             }
 
         }
+
         if(isGrabbed)
         {
             if (Throw.action.triggered)
@@ -80,9 +79,13 @@ public class objInteraction : MonoBehaviour
     {
         grabbable = true;
     }
+
     private void NoGrab()
     {
-        grabbable = false;
+        
+            grabbable = false;
+        
+       
     }
 
     private void ApplySpringConstraint()
@@ -120,6 +123,7 @@ public class objInteraction : MonoBehaviour
 
     private void ResetShooting()
     {
+        NoGrab();
         isGrabbed = false;
         if (rb.CompareTag("Door"))
         {

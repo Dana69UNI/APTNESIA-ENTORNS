@@ -8,6 +8,7 @@ public class CajaFuerteInteraction : MonoBehaviour
     private GameObject playerScripts;
     private Transform jugador; // Referencia al jugador.
     public InputActionReference interact;
+    bool safeIsOpen = false;
 
     void Start()
     {
@@ -17,22 +18,28 @@ public class CajaFuerteInteraction : MonoBehaviour
 
     void Update()
     {
-    
-        // Calcula la distancia entre el jugador y la caja fuerte.
-        if (Vector3.Distance(jugador.position, transform.position) < distanciaInteraccion)
+        if (!safeIsOpen)
         {
-
-            if (interact.action.IsPressed()) // Tecla para interactuar.
+            // Calcula la distancia entre el jugador y la caja fuerte.
+            if (Vector3.Distance(jugador.position, transform.position) < distanciaInteraccion)
             {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                playerScripts.GetComponent<camControl>().enabled = false;
-                UICaja.SetActive(true); // Muestra el panel.
-                
+
+                if (interact.action.IsPressed()) // Tecla para interactuar.
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                    playerScripts.GetComponent<camControl>().enabled = false;
+                    UICaja.SetActive(true); // Muestra el panel.
+
+                }
+
+            }
+            else
+            {
+                CerrarPanel();
             }
         }
     }
-
     public void CerrarPanel()
     {
         UICaja.SetActive(false);
@@ -40,5 +47,11 @@ public class CajaFuerteInteraction : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
        
+    }
+
+    public void safeToggle()
+    {
+        safeIsOpen = !safeIsOpen;
+           
     }
 }

@@ -9,17 +9,35 @@ public class llave : MonoBehaviour
 {
     public InputActionReference Interact;
     private bool isPlayerNear = false;
+    private bool CanPick=false;
+    private bool isSafeOpen=false;
     [SerializeField] abrirpuerta _puertaopen;
+    
+
 
     private void Start()
     {
-        interactiveSystem.pickFound += pickable;
+        
+        DontDestroyOnLoad(gameObject);
     }
 
+    private void noPick()
+    {
+        CanPick = false;
+    }
+    private void pick()
+    {
+        CanPick = true;
+    }
+
+    public void safeToggle()
+    {
+        isSafeOpen = !isSafeOpen;
+    }
     private void pickable()
     {
         Debug.Log("pickable");
-        if (Interact.action.IsPressed() && isPlayerNear)
+        if (Interact.action.IsPressed() && isPlayerNear && isSafeOpen) 
         {
             _puertaopen.DoorStatus();
             Destroy(gameObject);
@@ -32,7 +50,10 @@ public class llave : MonoBehaviour
 
     private void Update()
     {
-        
+        if (CanPick)
+        {
+            pickable();
+        }
     }
     private void OnTriggerEnter(Collider collider)
     {
@@ -52,5 +73,6 @@ public class llave : MonoBehaviour
             isPlayerNear = false;
         }
     }
+
 }
 

@@ -6139,6 +6139,20 @@ MonoBehaviour:
       Data3: -725101405
       Data4: 455438482
     Path: event:/ObjectHit
+  <GlassShatter>k__BackingField:
+    Guid:
+      Data1: 1786061425
+      Data2: 1211811019
+      Data3: -142415462
+      Data4: 74924827
+    Path: event:/GlassShatter
+  <PlayerStep>k__BackingField:
+    Guid:
+      Data1: 1619439550
+      Data2: 1334408493
+      Data3: 1294264217
+      Data4: 1253584716
+    Path: event:/PlayerSteps
 --- !u!1001 &527046002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9038,7 +9052,7 @@ MonoBehaviour:
   Grab: {fileID: 5967064783215274357, guid: 28c57f861d3a14f4f81002e5a1958b7a, type: 3}
   Throw: {fileID: -6072138600726929152, guid: 28c57f861d3a14f4f81002e5a1958b7a, type: 3}
   grabSpring: 100
-  grabDamper: 4.5
+  grabDamper: 8
   throwForce: 11
 --- !u!54 &715700995
 Rigidbody:
@@ -9100,7 +9114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf4d4cf90ab87547bec8e3db753e52c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyMagnitude: 6
+  DestroyMagnitude: 15
 --- !u!114 &715701000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14465,7 +14479,7 @@ MonoBehaviour:
   Grab: {fileID: 5967064783215274357, guid: 28c57f861d3a14f4f81002e5a1958b7a, type: 3}
   Throw: {fileID: -6072138600726929152, guid: 28c57f861d3a14f4f81002e5a1958b7a, type: 3}
   grabSpring: 100
-  grabDamper: 4.5
+  grabDamper: 8
   throwForce: 11
 --- !u!54 &1128366248
 Rigidbody:
@@ -14527,7 +14541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf4d4cf90ab87547bec8e3db753e52c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyMagnitude: 6
+  DestroyMagnitude: 15
 --- !u!114 &1128366253
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{94deee0e-d87e-4c84-a808-25ce05e1c9d4}">
+		<property name="assetPath">
+			<value>Thud1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.43210884353741497</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{bc4de286-bc2c-4966-a41a-744dac66f223}</destination>
+		</relationship>
+	</object>
+</objects>

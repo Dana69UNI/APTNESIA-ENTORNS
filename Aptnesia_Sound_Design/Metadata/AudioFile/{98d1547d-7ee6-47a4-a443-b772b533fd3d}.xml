@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{9044e5f5-a337-4037-8f89-6531b311d395}">
+	<object class="AudioFile" id="{98d1547d-7ee6-47a4-a443-b772b533fd3d}">
 		<property name="assetPath">
-			<value>MusicaGramofono.mp3</value>
-		</property>
-		<property name="isStreaming">
-			<value>true</value>
+			<value>thud3.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
 		</property>
 		<property name="channelCount">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<property name="length">
-			<value>80.796734693877553</value>
+			<value>0.26693877551020406</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{bc4de286-bc2c-4966-a41a-744dac66f223}</destination>

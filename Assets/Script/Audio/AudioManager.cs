@@ -62,4 +62,11 @@ public class AudioManager : MonoBehaviour
         eventInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(Gramofono));
         return eventInstance;
     }
+
+    public EventInstance CreateEventInstanceObj(EventReference eventReference, Transform objPos)
+    {
+        EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
+        eventInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(objPos));
+        return eventInstance;
+    }
 }

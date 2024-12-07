@@ -16,6 +16,16 @@ public class FMODEvents : MonoBehaviour
 
     [field: Header("Musica")]
     [field: SerializeField] public EventReference Musica { get; private set; }
+
+    [field: Header("ObjHit")]
+    [field: SerializeField] public EventReference ObjHit { get; private set; }
+
+    [field: Header("GlassShatter")]
+    [field: SerializeField] public EventReference GlassShatter { get; private set; }
+
+    [field: Header("PlayerStep")]
+    [field: SerializeField] public EventReference PlayerStep { get; private set; }
+
     private void Awake()
     {
         if(instance == null)

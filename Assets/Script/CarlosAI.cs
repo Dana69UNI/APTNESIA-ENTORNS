@@ -28,8 +28,8 @@ public class CarlosAI : MonoBehaviour
 
     private void Start()
     {
-        respiracionSFX = AudioManager.Instance.CreateEventInstance(FMODEvents.instance.Respira);
-        respiracionAgitadaSFX = AudioManager.Instance.CreateEventInstance(FMODEvents.instance.RespiraAgit);
+        respiracionSFX = AudioManager.Instance.CreateEventInstanceCarlos(FMODEvents.instance.Respira);
+        respiracionAgitadaSFX = AudioManager.Instance.CreateEventInstanceCarlos(FMODEvents.instance.RespiraAgit);
     }
 
     void Update()

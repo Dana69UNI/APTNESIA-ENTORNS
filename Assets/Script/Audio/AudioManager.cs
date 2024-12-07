@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
 
 
     public Transform playerTrans;
+    public Transform CarlosTrans;
+    public Transform Gramofono;
     private Vector3 playerPos;
     private FMOD.Studio.EventInstance musicInstance;  // Instancia para la música
     private FMOD.Studio.EventInstance sfxInstance;    // Instancia para SFX
@@ -41,10 +43,23 @@ public class AudioManager : MonoBehaviour
         RuntimeManager.PlayOneShot(sound, worldPos);
     }
 
-    public EventInstance CreateEventInstance(EventReference eventReference)
+    public EventInstance CreateEventInstanceCarlos(EventReference eventReference)
+    {
+        EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
+        eventInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(CarlosTrans));
+        return eventInstance;
+    }
+    public EventInstance CreateEventInstancePlayer(EventReference eventReference)
     {
         EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
         eventInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(playerTrans));
+        return eventInstance;
+    }
+
+    public EventInstance CreateEventInstanceGramofono(EventReference eventReference)
+    {
+        EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
+        eventInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(Gramofono));
         return eventInstance;
     }
 }

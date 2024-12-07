@@ -10,7 +10,7 @@ public class RecordPlayerScript : MonoBehaviour
 
     private void Start()
     {
-        Musica = AudioManager.Instance.CreateEventInstance(FMODEvents.instance.Musica);
+        Musica = AudioManager.Instance.CreateEventInstanceGramofono(FMODEvents.instance.Musica);
     }
         private void OnCollisionEnter(Collision collision)
     {

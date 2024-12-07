@@ -46,6 +46,7 @@ public class objInteraction : MonoBehaviour
                 if(rb.velocity.magnitude < 0.8f)
                 {
                     isGrabbed = true;
+                    
                     ApplySpringConstraint();
                     if(rb.CompareTag("Door"))
                     {

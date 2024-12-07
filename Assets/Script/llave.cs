@@ -17,8 +17,7 @@ public class llave : MonoBehaviour
 
     private void Start()
     {
-        
-        DontDestroyOnLoad(gameObject);
+     gameObject.SetActive(false);
     }
 
     private void noPick()
@@ -33,6 +32,8 @@ public class llave : MonoBehaviour
     public void safeToggle()
     {
         isSafeOpen = !isSafeOpen;
+        gameObject.SetActive(true);
+
     }
     private void pickable()
     {

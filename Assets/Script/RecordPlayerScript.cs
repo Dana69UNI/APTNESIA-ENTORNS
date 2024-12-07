@@ -21,4 +21,8 @@ public class RecordPlayerScript : MonoBehaviour
             Musica.start();
         }
     }
+    private void OnDestroy()
+    {
+        Musica.stop(STOP_MODE.IMMEDIATE);
+    }
 }

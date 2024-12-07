@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMOD.Studio;
 
 public class llave : MonoBehaviour
 {
@@ -12,12 +13,13 @@ public class llave : MonoBehaviour
     private bool CanPick=false;
     private bool isSafeOpen=false;
     [SerializeField] abrirpuerta _puertaopen;
-    
+    [SerializeField] private EventInstance SpawnAmbient;
 
 
     private void Start()
     {
      gameObject.SetActive(false);
+        SpawnAmbient = AudioManager.Instance.CreateEventInstanceObj(FMODEvents.instance.KeyAppear, gameObject.transform);
     }
 
     private void noPick()
@@ -33,6 +35,7 @@ public class llave : MonoBehaviour
     {
         isSafeOpen = !isSafeOpen;
         gameObject.SetActive(true);
+        SpawnAmbient.start();
 
     }
     private void pickable()
@@ -73,6 +76,11 @@ public class llave : MonoBehaviour
 
             isPlayerNear = false;
         }
+    }
+
+    private void OnDestroy()
+    {
+        SpawnAmbient.stop(STOP_MODE.ALLOWFADEOUT);
     }
 
 }

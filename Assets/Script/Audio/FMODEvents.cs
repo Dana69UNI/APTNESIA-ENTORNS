@@ -26,6 +26,15 @@ public class FMODEvents : MonoBehaviour
     [field: Header("PlayerStep")]
     [field: SerializeField] public EventReference PlayerStep { get; private set; }
 
+    [field: Header("AmbientSound")]
+    [field: SerializeField] public EventReference AmbientSound { get; private set; }
+
+    [field: Header("ClockTick")]
+    [field: SerializeField] public EventReference ClockTick { get; private set; }
+
+    [field: Header("KeyAppear")]
+    [field: SerializeField] public EventReference KeyAppear { get; private set; }
+
     private void Awake()
     {
         if(instance == null)

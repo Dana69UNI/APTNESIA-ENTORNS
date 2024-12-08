@@ -6575,8 +6575,8 @@ GameObject:
   - component: {fileID: 569607586}
   - component: {fileID: 569607585}
   - component: {fileID: 569607584}
-  - component: {fileID: 569607583}
   - component: {fileID: 569607588}
+  - component: {fileID: 569607589}
   m_Layer: 0
   m_Name: portal
   m_TagString: Untagged
@@ -6584,18 +6584,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &569607583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 569607582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eef3b0eab2bdd4458212e35f8a71054, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &569607584
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6692,6 +6680,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f81e7a82a67011a4dbe4dc13864771a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &569607589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569607582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11053949a3888de468200f1d03934bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &571118859
@@ -29753,6 +29753,7 @@ MonoBehaviour:
   cajaFuerteInt: {fileID: 0}
   codigoCorrecto: 426
   codigoEscrito: {fileID: 0}
+  CajaFuerte: {fileID: 0}
   _llave: {fileID: 0}
   _cajaFuerteInteraccion: {fileID: 0}
 --- !u!4 &2144404684

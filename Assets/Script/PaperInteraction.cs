@@ -39,7 +39,7 @@ public class PaperInteraction : MonoBehaviour
         if (Interact.action.triggered && isPlayerNear)
         {
             TogglePaperUI();
-            Debug.Log("Presionado");
+            //Debug.Log("Presionado");
         }
     }
 
@@ -56,7 +56,7 @@ public class PaperInteraction : MonoBehaviour
         if (other.CompareTag("Player")) // Detectar solo al jugador
         {
             isPlayerNear = true;
-            Debug.Log("Presiona E para interactuar con el papel");
+            //Debug.Log("Presiona E para interactuar con el papel");
         }
     }
 
@@ -65,7 +65,7 @@ public class PaperInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerNear = false;
-            Debug.Log("Saliste de la zona del papel");
+            //Debug.Log("Saliste de la zona del papel");
 
             // Si el jugador se aleja y el papel estaba abierto, lo cerramos
             if (isPaperOpen)
@@ -81,7 +81,7 @@ public class PaperInteraction : MonoBehaviour
         {
             isPaperOpen = !isPaperOpen; // Alterna el estado de apertura
             paperUI.SetActive(isPaperOpen); // Activa o desactiva el Canvas
-            Debug.Log(isPaperOpen ? "Mostrando el papel" : "Ocultando el papel");
+            //Debug.Log(isPaperOpen ? "Mostrando el papel" : "Ocultando el papel");
         }
     }
 }

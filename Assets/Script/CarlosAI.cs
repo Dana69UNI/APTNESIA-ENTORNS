@@ -9,7 +9,7 @@ using FMODUnity;
 
 public class CarlosAI : MonoBehaviour
 {
-    public Transform character;         // Referencia al jugador
+    private Transform character;         // Referencia al jugador
     public float moveSpeed = 2f;        // Velocidad de movimiento
     public float hideDistance = 1f;     // Distancia mínima para detenerse
     public float retreatSpeed = 3f;     // Velocidad al alejarse
@@ -32,6 +32,7 @@ public class CarlosAI : MonoBehaviour
         respiracionSFX = AudioManager.Instance.CreateEventInstanceCarlos(FMODEvents.instance.Respira);
         respiracionAgitadaSFX = AudioManager.Instance.CreateEventInstanceCarlos(FMODEvents.instance.RespiraAgit);
         rb = GetComponent<Rigidbody>();
+        character = GameObject.Find("Character").transform;
     }
 
     void Update()

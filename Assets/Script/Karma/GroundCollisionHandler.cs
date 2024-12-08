@@ -11,6 +11,7 @@ public class GroundCollisionHandler : MonoBehaviour
         {
             isOnGround = true; //estas 3 lineas es para reducir karma 
             KarmaManager.Instance.RemoveKarma(karmaPenalty);
+            Debug.Log("sededujokarma");
         }
     }
 

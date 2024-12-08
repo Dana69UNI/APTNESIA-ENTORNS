@@ -80,7 +80,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{315c16a1-38c6-4f15-be82-c2bd70654df5}">
 		<property name="volume">
-			<value>-12</value>
+			<value>-8</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{6e398cc9-c0fc-453d-bbb8-5bf0d27ee449}</destination>
@@ -165,7 +165,7 @@
 	<object class="SFXReverbEffect" id="{f5de8d23-0a39-4fc5-986c-3986d7297678}" />
 	<object class="SpatialiserEffect" id="{bc171794-7e0e-4af0-8e74-5dddbda82807}">
 		<property name="maximumDistance">
-			<value>80</value>
+			<value>100</value>
 		</property>
 		<property name="overrideRange">
 			<value>true</value>

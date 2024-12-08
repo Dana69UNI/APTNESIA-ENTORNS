@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class KarmaManager : MonoBehaviour
 {
-    public static KarmaManager Instance; // Singleton para acceso global (sinceramente aun no tengo muy claro que es) necesito invertigar mas, solo se que con esto funciona
+    public static KarmaManager Instance; // Singleton para acceso global
 
     private int karmaPoints = 0;
 
     private void Awake()
     {
-        // Configurar el Singleton (sinceramente aun no tengo muy claro que es) necesito invertigar mas, solo se que con esto funciona
+        // Configurar el Singleton
         if (Instance == null)
         {
             Instance = this;

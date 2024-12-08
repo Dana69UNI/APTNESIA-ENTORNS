@@ -11665,6 +11665,156 @@ Transform:
   - {fileID: 761662648}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &825968041
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 2b4cf484280bf794aa01a08971d7c169,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.6442568
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2b4cf484280bf794aa01a08971d7c169,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.6442568
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2b4cf484280bf794aa01a08971d7c169,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.6442568
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2b4cf484280bf794aa01a08971d7c169,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 27.33
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2b4cf484280bf794aa01a08971d7c169,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.89
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2b4cf484280bf794aa01a08971d7c169,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15.12
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2b4cf484280bf794aa01a08971d7c169,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6703624
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2b4cf484280bf794aa01a08971d7c169,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.6703625
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2b4cf484280bf794aa01a08971d7c169,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.22497608
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2b4cf484280bf794aa01a08971d7c169,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.22497617
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2b4cf484280bf794aa01a08971d7c169,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2b4cf484280bf794aa01a08971d7c169,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2b4cf484280bf794aa01a08971d7c169,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -322.896
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 2b4cf484280bf794aa01a08971d7c169,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fd3bf013ca61e174d870296971521b94, type: 2}
+    - target: {fileID: 919132149155446097, guid: 2b4cf484280bf794aa01a08971d7c169,
+        type: 3}
+      propertyPath: m_Name
+      value: broken wheelchair with blood
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2b4cf484280bf794aa01a08971d7c169,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 825968044}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2b4cf484280bf794aa01a08971d7c169,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 825968043}
+  m_SourcePrefab: {fileID: 100100000, guid: 2b4cf484280bf794aa01a08971d7c169, type: 3}
+--- !u!1 &825968042 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2b4cf484280bf794aa01a08971d7c169,
+    type: 3}
+  m_PrefabInstance: {fileID: 825968041}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &825968043
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825968042}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.8230243, y: 0.951781, z: 1.0280524}
+  m_Center: {x: 0.01624436, y: 0.12485144, z: -0.10500778}
+--- !u!54 &825968044
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825968042}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &826665370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20538,6 +20688,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1379470383}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 876a1572a32526245bb8b928ebf06d4f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1379470384}
     - targetCorrespondingSourceObject: {fileID: 7675925144382111960, guid: 876a1572a32526245bb8b928ebf06d4f,
         type: 3}
       insertIndex: -1
@@ -20603,6 +20757,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 2.3513968, z: 0.46202007}
   m_Center: {x: 1.0356257e-32, y: 1.1275804, z: -0.015154319}
+--- !u!54 &1379470384
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379470381}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1413968173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34746,6 +34927,7 @@ GameObject:
   - component: {fileID: 1984871236}
   - component: {fileID: 1984871235}
   - component: {fileID: 1984871238}
+  - component: {fileID: 1984871239}
   m_Layer: 0
   m_Name: BookShelf (2)
   m_TagString: Untagged
@@ -34841,6 +35023,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.304653, y: 3.3235455, z: 0.88082826}
   m_Center: {x: -0.0014521478, y: 1.6625777, z: 0.0027619598}
+--- !u!54 &1984871239
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984871234}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1994853361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37912,3 +38121,4 @@ SceneRoots:
   - {fileID: 1623994085}
   - {fileID: 1256538329}
   - {fileID: 388478091}
+  - {fileID: 825968041}

@@ -6,10 +6,11 @@ using Unity.VisualScripting; // Importante: Esto permite usar TextMeshPro.
 public class CodigoVerificacion : MonoBehaviour
 {
     public CajaFuerteInteraction cajaFuerteInt;
-    public string codigoCorrecto = "123"; // Código correcto para abrir la caja fuerte.
+    public string codigoCorrecto = "426"; // Código correcto para abrir la caja fuerte.
     private GameObject cajaFuerte; // Asigna la caja fuerte en el inspector.
     private string codigoIngresado;
     public TMP_Text codigoEscrito;
+    public Animator CajaFuerte;
     [SerializeField] llave _llave;
     [SerializeField] CajaFuerteInteraction _cajaFuerteInteraccion;
 
@@ -37,9 +38,11 @@ public class CodigoVerificacion : MonoBehaviour
 
     void AbrirCaja()
     {
+        
         cajaFuerteInt.CerrarPanel();
         _llave.safeToggle();
         _cajaFuerteInteraccion.safeToggle();
+        CajaFuerte.Play("cajafuerte");
         Debug.Log("¡Caja Abierta!"); // Mensaje en la consola.
         Destroy(cajaFuerte); // Cambia esto por una animación si tienes una.
     }
@@ -63,3 +66,5 @@ public class CodigoVerificacion : MonoBehaviour
         
     }
 }
+
+

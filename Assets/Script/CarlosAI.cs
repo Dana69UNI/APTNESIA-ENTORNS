@@ -16,6 +16,7 @@ public class CarlosAI : MonoBehaviour
     public float retreatDistance = 5f; // Distancia a la que se aleja cuando observado
     public float hidingSpotRadius = 10f; // Radio para buscar escondites
     public LayerMask hidingSpotLayer;   // Capa de los escondites
+    private Rigidbody rb;
 
     private bool isBeingWatched = false;
     private bool isNormalSoundPlaying = false;  
@@ -30,10 +31,12 @@ public class CarlosAI : MonoBehaviour
     {
         respiracionSFX = AudioManager.Instance.CreateEventInstanceCarlos(FMODEvents.instance.Respira);
         respiracionAgitadaSFX = AudioManager.Instance.CreateEventInstanceCarlos(FMODEvents.instance.RespiraAgit);
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
+        HandleInverseGravity();
         UpdateSound();
         if (isBeingWatched)
         {
@@ -43,6 +46,11 @@ public class CarlosAI : MonoBehaviour
         {
             MoveTowardsCharacter(); // Carlos se mueve hacia el jugador
         }
+    }
+
+    private void HandleInverseGravity()
+    {
+        rb.AddForce(new Vector3(0,9.81f,0), ForceMode.Impulse);
     }
 
     // Método para mover a Carlos hacia el jugador

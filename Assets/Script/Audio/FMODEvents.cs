@@ -35,6 +35,12 @@ public class FMODEvents : MonoBehaviour
     [field: Header("KeyAppear")]
     [field: SerializeField] public EventReference KeyAppear { get; private set; }
 
+    [field: Header("LightSound")]
+    [field: SerializeField] public EventReference LightSound { get; private set; }
+
+    [field: Header("LightFlickr")]
+    [field: SerializeField] public EventReference LightFlickr { get; private set; }
+
     private void Awake()
     {
         if(instance == null)

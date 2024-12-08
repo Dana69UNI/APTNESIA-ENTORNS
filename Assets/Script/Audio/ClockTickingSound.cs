@@ -13,9 +13,9 @@ public class ClockTickingSound : MonoBehaviour
         Tick.start();
     }
 
-    private void Awake()
+    private void OnDestroy()
     {
-        
+        Tick.stop(STOP_MODE.IMMEDIATE);
     }
 
 

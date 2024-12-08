@@ -5,19 +5,36 @@ public class ObjectSceneChanger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-            int karma = KarmaManager.Instance.GetKarma();
+        int karma = KarmaManager.Instance.GetKarma();
+        Scene currentScene = SceneManager.GetActiveScene();
 
-            if (karma <= -10)
+        int currentSceneIndex = currentScene.buildIndex;
+
+        if (karma < -10)
+        {
+            // Cargar escena de un número superior si no es 3
+            int nextSceneIndex = currentSceneIndex + 1;
+            if (nextSceneIndex < 3)
             {
-                SceneManager.LoadScene(1); // Escena distópica
-            }
-            else if (karma >= 10)
-            {
-                SceneManager.LoadScene(0); // Escena utópica
+                SceneManager.LoadScene(nextSceneIndex);
             }
             else
             {
-                SceneManager.LoadScene(0); // Escena normal
+                SceneManager.LoadScene(currentSceneIndex);
             }
+        }
+        else if (karma > 10)
+        {
+            // Cargar escena de un número inferior si no es -1
+            int previousSceneIndex = currentSceneIndex - 1;
+            if (previousSceneIndex > -1)
+            {
+                SceneManager.LoadScene(previousSceneIndex);
+            }
+            else
+            {
+                SceneManager.LoadScene(currentSceneIndex);
+            }
+        }
     }
 }

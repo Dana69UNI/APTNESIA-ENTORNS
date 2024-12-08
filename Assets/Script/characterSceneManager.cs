@@ -34,15 +34,15 @@ public class characterSceneManager : MonoBehaviour
     {
         if (uiPickable == null)
         {
-            Debug.Log(" llegué.");
+           
             uiPickable = GetComponentInChildren<uiPickable>(); 
-            Debug.Log("uiPickable ha sido reinicializado.");
+            
         }
 
         if (uiInteractive == null)
         {
             uiInteractive = GetComponentInChildren<uiInteractive>();
-            Debug.Log("uiInteractive ha sido reinicializado.");
+           
         }
     }
 

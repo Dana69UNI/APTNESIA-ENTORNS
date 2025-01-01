@@ -11,7 +11,7 @@ public class CambiarEscena2 : MonoBehaviour
     private void Start()
     {
         Character = GameObject.FindWithTag("Player");
-        Inicio = GameObject.FindWithTag("Respawn");
+        Inicio = GameObject.FindWithTag("PuntoDeInicio");
     }
     private void OnTriggerEnter(Collider other)
     {

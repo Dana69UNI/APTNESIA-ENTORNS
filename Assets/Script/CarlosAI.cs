@@ -37,6 +37,7 @@ public class CarlosAI : MonoBehaviour
 
     void Update()
     {
+        SearchApple();
         HandleInverseGravity();
         UpdateSound();
         if (isBeingWatched)
@@ -201,5 +202,9 @@ public class CarlosAI : MonoBehaviour
         }
     }
 
+    private void SearchApple()
+    {
+
+    }
 }
 

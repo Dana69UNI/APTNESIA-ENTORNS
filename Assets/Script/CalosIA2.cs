@@ -4,10 +4,7 @@ using System.Collections;
 using FMOD.Studio;
 using FMODUnity;
 
-
-
-
-public class CarlosAI : MonoBehaviour
+public class CarlosAI2 : MonoBehaviour
 {
     private Transform character;         // Referencia al jugador
     public float moveSpeed = 2f;        // Velocidad de movimiento
@@ -19,11 +16,14 @@ public class CarlosAI : MonoBehaviour
     private Rigidbody rb;
 
     private bool isBeingWatched = false;
-    private bool isNormalSoundPlaying = false;  
-    private bool isAgitatedSoundPlaying = false;  
+    private bool isNormalSoundPlaying = false;
+    private bool isAgitatedSoundPlaying = false;
     private Transform currentHidingSpot;
 
-   
+    public GameObject key;               // Referencia a la llave
+    private Transform apple;             // Referencia a la manzana
+    private bool hasApple = false;       // Indica si Carlos tiene la manzana
+
     [SerializeField] private EventInstance respiracionSFX;
     [SerializeField] private EventInstance respiracionAgitadaSFX;
 
@@ -33,25 +33,48 @@ public class CarlosAI : MonoBehaviour
         respiracionAgitadaSFX = AudioManager.Instance.CreateEventInstanceCarlos(FMODEvents.instance.RespiraAgit);
         rb = GetComponent<Rigidbody>();
         character = GameObject.Find("Character").transform;
+
+        if (key != null) key.SetActive(false); // Asegúrate de que la llave esté desactivada al inicio
     }
 
     void Update()
     {
         HandleInverseGravity();
         UpdateSound();
-        if (isBeingWatched)
+
+        if (hasApple)
         {
-            HideOrRetreat(); // Carlos busca esconderse o se aleja
+            // Si ya tiene la manzana, se queda quieto
+            return;
+        }
+
+        if (apple == null)
+        {
+            // Buscar la manzana en el rango utilizando el tag "Apple"
+            FindApple();
+        }
+
+        if (apple != null)
+        {
+            MoveTowardsApple(); // Moverse hacia la manzana
         }
         else
         {
-            MoveTowardsCharacter(); // Carlos se mueve hacia el jugador
+            // Comportamiento normal de Carlos
+            if (isBeingWatched)
+            {
+                HideOrRetreat(); // Carlos busca esconderse o se aleja
+            }
+            else
+            {
+                MoveTowardsCharacter(); // Carlos se mueve hacia el jugador
+            }
         }
     }
 
     private void HandleInverseGravity()
     {
-        rb.AddForce(new Vector3(0,9.81f,0), ForceMode.Impulse);
+        rb.AddForce(new Vector3(0, 9.81f, 0), ForceMode.Impulse);
     }
 
     // Método para mover a Carlos hacia el jugador
@@ -59,26 +82,67 @@ public class CarlosAI : MonoBehaviour
     {
         Vector3 direction = (character.position - transform.position).normalized;
 
-        
-
         if (Vector3.Distance(character.position, transform.position) > hideDistance)
         {
             transform.position += direction * moveSpeed * Time.deltaTime;
         }
+    }
 
+    // Método para buscar la manzana
+    private void FindApple()
+    {
+        Collider[] itemsInRange = Physics.OverlapSphere(transform.position, hidingSpotRadius);
+
+        foreach (Collider item in itemsInRange)
+        {
+            if (item.CompareTag("Apple"))
+            {
+                apple = item.transform;
+                break;
+            }
+        }
+    }
+
+    // Método para moverse hacia la manzana
+    private void MoveTowardsApple()
+    {
+        Vector3 direction = (apple.position - transform.position).normalized;
+        transform.position += direction * moveSpeed * Time.deltaTime;
+
+        // Si Carlos alcanza la manzana
+        if (Vector3.Distance(transform.position, apple.position) < 1f)
+        {
+            PickUpApple();
+        }
+    }
+
+    // Método para recoger la manzana
+    private void PickUpApple()
+    {
+        hasApple = true;
+
+        if (apple != null)
+        {
+            Destroy(apple.gameObject); // Elimina la manzana
+        }
+
+        if (key != null)
+        {
+            key.SetActive(true); // Activa la llave
+        }
+
+        Debug.Log("Carlos ha recogido la manzana y ha activado la llave.");
     }
 
     // Método para buscar esconderse o alejarse
     private void HideOrRetreat()
     {
-        // Si no tiene un escondite actual, busca uno cercano
         if (currentHidingSpot == null)
         {
-            Collider[] hidingSpots = Physics.OverlapSphere(transform.position, hidingSpotRadius, hidingSpotLayer); //Physics.OverlapSphere es lo que utilizamos para detectar escondites cercanos a Carlos
+            Collider[] hidingSpots = Physics.OverlapSphere(transform.position, hidingSpotRadius, hidingSpotLayer);
 
             if (hidingSpots.Length > 0)
             {
-                // Encuentra el escondite más cercano
                 Transform closestSpot = null;
                 float closestDistance = Mathf.Infinity;
 
@@ -95,27 +159,24 @@ public class CarlosAI : MonoBehaviour
                 currentHidingSpot = closestSpot;
             }
         }
-        
-        // Moverse hacia el escondite si existe
+
         if (currentHidingSpot != null)
         {
             Vector3 direction = (currentHidingSpot.position - transform.position).normalized;
             transform.position += direction * moveSpeed * Time.deltaTime;
-           
-            // Si ya está cerca del escondite, detenerse
+
             if (Vector3.Distance(transform.position, currentHidingSpot.position) < hideDistance)
             {
-                currentHidingSpot = null; // Reinicia el escondite para la próxima vez
+                currentHidingSpot = null;
             }
         }
         else
         {
-            // Si no encuentra escondite, se aleja del jugador
             RetreatFromPlayer();
         }
     }
 
-    // Método para alejar a Carlos cuando no hay escondites
+    // Método para alejarse del jugador
     private void RetreatFromPlayer()
     {
         Vector3 direction = (transform.position - character.position).normalized;
@@ -126,13 +187,10 @@ public class CarlosAI : MonoBehaviour
         }
     }
 
-    // Método para notificar si Carlos está siendo observado
     public void SetBeingWatched(bool watched)
     {
         isBeingWatched = watched;
     }
-
-
 
     private void UpdateSound()
     {
@@ -195,10 +253,9 @@ public class CarlosAI : MonoBehaviour
     {
         if (respiracionAgitadaSFX.isValid() && isAgitatedSoundPlaying)
         {
-        //    Debug.Log("Stopping agitated breathing...");
+            //    Debug.Log("Stopping agitated breathing...");
             respiracionAgitadaSFX.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             isAgitatedSoundPlaying = false;  // Marca que la respiración agitada se detuvo
         }
     }
 }
-

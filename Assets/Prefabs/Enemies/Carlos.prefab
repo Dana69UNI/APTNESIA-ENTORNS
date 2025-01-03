@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4822917445886954108}
   - component: {fileID: 2576456039711109783}
   - component: {fileID: 2536100119044215855}
-  - component: {fileID: 4527743142638615649}
+  - component: {fileID: 6265976471008157074}
   m_Layer: 9
   m_Name: Carlos
   m_TagString: Untagged
@@ -136,7 +136,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &4527743142638615649
+--- !u!114 &6265976471008157074
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,15 +145,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 325370740799380414}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f59bb2b64a0956b4aaec0cc4d2c07453, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d1e0c57a148d854194ee4bfaedbc8e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 0}
-  moveSpeed: 0.3
-  hideDistance: 3
-  retreatSpeed: 0.6
+  moveSpeed: 2
+  hideDistance: 1
+  retreatSpeed: 3
   retreatDistance: 5
   hidingSpotRadius: 10
   hidingSpotLayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 0
+  key: {fileID: 0}

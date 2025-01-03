@@ -12,6 +12,7 @@ TagManager:
   - Book
   - apple
   - PuntoDeInicio
+  - Apple
   layers:
   - Default
   - TransparentFX

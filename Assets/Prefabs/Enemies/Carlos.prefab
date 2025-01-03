@@ -152,8 +152,9 @@ MonoBehaviour:
   hideDistance: 1
   retreatSpeed: 3
   retreatDistance: 5
+  detectionRadius: 5
   hidingSpotRadius: 10
   hidingSpotLayer:
     serializedVersion: 2
     m_Bits: 0
-  key: {fileID: 0}
+  key: {fileID: 325370740799380414}

@@ -19896,7 +19896,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2c5e779568bc06c4d947ac355f408a35,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -51.36
+      value: 10.78
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2c5e779568bc06c4d947ac355f408a35,
         type: 3}
@@ -19906,7 +19906,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2c5e779568bc06c4d947ac355f408a35,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -26.729
+      value: -37.48
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2c5e779568bc06c4d947ac355f408a35,
         type: 3}
@@ -24227,6 +24227,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6265976471008157074, guid: 17df84cd8974bf34b889eef27a06a5d8,
         type: 3}
+      propertyPath: detectionRadius
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265976471008157074, guid: 17df84cd8974bf34b889eef27a06a5d8,
+        type: 3}
       propertyPath: hidingSpotLayer.m_Bits
       value: 1024
       objectReference: {fileID: 0}
@@ -24253,7 +24258,7 @@ PrefabInstance:
     - target: {fileID: 6557788612983269492, guid: 17df84cd8974bf34b889eef27a06a5d8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.03
+      value: 12.84
       objectReference: {fileID: 0}
     - target: {fileID: 6557788612983269492, guid: 17df84cd8974bf34b889eef27a06a5d8,
         type: 3}

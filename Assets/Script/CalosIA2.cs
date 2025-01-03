@@ -1,6 +1,5 @@
 using UnityEngine;
 using System;
-using System.Collections;
 using FMOD.Studio;
 using FMODUnity;
 
@@ -11,6 +10,7 @@ public class CarlosAI2 : MonoBehaviour
     public float hideDistance = 1f;     // Distancia mínima para detenerse
     public float retreatSpeed = 3f;     // Velocidad al alejarse
     public float retreatDistance = 5f; // Distancia a la que se aleja cuando observado
+    public float detectionRadius = 5f;  // Radio de detección para la manzana
     public float hidingSpotRadius = 10f; // Radio para buscar escondites
     public LayerMask hidingSpotLayer;   // Capa de los escondites
     private Rigidbody rb;
@@ -21,7 +21,7 @@ public class CarlosAI2 : MonoBehaviour
     private Transform currentHidingSpot;
 
     public GameObject key;               // Referencia a la llave
-    private Transform apple;             // Referencia a la manzana
+    private Transform apple;             // Referencia a la manzana, esta tiene que ser tag porque ya tiene el layer "interaction"
     private bool hasApple = false;       // Indica si Carlos tiene la manzana
 
     [SerializeField] private EventInstance respiracionSFX;
@@ -48,11 +48,7 @@ public class CarlosAI2 : MonoBehaviour
             return;
         }
 
-        if (apple == null)
-        {
-            // Buscar la manzana en el rango utilizando el tag "Apple"
-            FindApple();
-        }
+        CheckForAppleInRange(); // Detectar la manzana en el rango
 
         if (apple != null)
         {
@@ -88,16 +84,17 @@ public class CarlosAI2 : MonoBehaviour
         }
     }
 
-    // Método para buscar la manzana
-    private void FindApple()
+    // Método para detectar la manzana en el rango
+    private void CheckForAppleInRange()
     {
-        Collider[] itemsInRange = Physics.OverlapSphere(transform.position, hidingSpotRadius);
+        Collider[] objectsInRange = Physics.OverlapSphere(transform.position, detectionRadius);
 
-        foreach (Collider item in itemsInRange)
+        foreach (Collider obj in objectsInRange)
         {
-            if (item.CompareTag("Apple"))
+            if (obj.CompareTag("Apple"))
             {
-                apple = item.transform;
+                apple = obj.transform;
+                PickUpApple(); // Recoge la manzana inmediatamente si está dentro del rango
                 break;
             }
         }
@@ -106,6 +103,8 @@ public class CarlosAI2 : MonoBehaviour
     // Método para moverse hacia la manzana
     private void MoveTowardsApple()
     {
+        if (apple == null) return;
+
         Vector3 direction = (apple.position - transform.position).normalized;
         transform.position += direction * moveSpeed * Time.deltaTime;
 
@@ -197,25 +196,17 @@ public class CarlosAI2 : MonoBehaviour
         PLAYBACK_STATE playbackStateNormal;
         PLAYBACK_STATE playbackStateAgitada;
 
-        // Obtener los estados de reproducción de ambos sonidos
         respiracionSFX.getPlaybackState(out playbackStateNormal);
         respiracionAgitadaSFX.getPlaybackState(out playbackStateAgitada);
 
-        //Debug.Log("Playback State Normal: " + playbackStateNormal);
-        //Debug.Log("Playback State Agitada: " + playbackStateAgitada);
-
-        // Si está siendo observado, reproducir respiración agitada
         if (isBeingWatched)
         {
-            // Si el sonido agitado no está en reproducción, iniciar reproducción
             if (playbackStateAgitada == PLAYBACK_STATE.STOPPED && !isAgitatedSoundPlaying)
             {
-                //Debug.Log("Starting agitated breathing...");
                 respiracionAgitadaSFX.start();
-                isAgitatedSoundPlaying = true;  // Marca que la respiración agitada está en reproducción
+                isAgitatedSoundPlaying = true;
             }
 
-            // Detener la respiración normal si está sonando
             if (playbackStateNormal != PLAYBACK_STATE.STOPPED && isNormalSoundPlaying)
             {
                 StopNormalBreathing();
@@ -223,15 +214,12 @@ public class CarlosAI2 : MonoBehaviour
         }
         else
         {
-            // Si no está siendo observado, reproducir respiración normal
             if (playbackStateNormal == PLAYBACK_STATE.STOPPED && !isNormalSoundPlaying)
             {
-                //Debug.Log("Starting normal breathing...");
                 respiracionSFX.start();
-                isNormalSoundPlaying = true;  // Marca que la respiración normal está en reproducción
+                isNormalSoundPlaying = true;
             }
 
-            // Detener la respiración agitada si está sonando
             if (playbackStateAgitada != PLAYBACK_STATE.STOPPED && isAgitatedSoundPlaying)
             {
                 StopAgitatedBreathing();
@@ -243,9 +231,8 @@ public class CarlosAI2 : MonoBehaviour
     {
         if (respiracionSFX.isValid() && isNormalSoundPlaying)
         {
-            //Debug.Log("Stopping normal breathing...");
             respiracionSFX.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            isNormalSoundPlaying = false;  // Marca que la respiración normal se detuvo
+            isNormalSoundPlaying = false;
         }
     }
 
@@ -253,9 +240,15 @@ public class CarlosAI2 : MonoBehaviour
     {
         if (respiracionAgitadaSFX.isValid() && isAgitatedSoundPlaying)
         {
-            //    Debug.Log("Stopping agitated breathing...");
             respiracionAgitadaSFX.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            isAgitatedSoundPlaying = false;  // Marca que la respiración agitada se detuvo
+            isAgitatedSoundPlaying = false;
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        // Visualización del rango de detección en el editor
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
 }

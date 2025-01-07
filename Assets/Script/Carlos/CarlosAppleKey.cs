@@ -66,9 +66,9 @@ public class CarlosAppleKey : MonoBehaviour
         //else
         //{
             
-            //keyPrefab.gameObject.SetActive(true);
-            //Vector3 posicionCarlos = transform.position;
-            //keyPrefab.gameObject.transform.position = posicionCarlos - new Vector3(0,1,0) ;
+           keyPrefab.gameObject.SetActive(true);
+           Vector3 posicionCarlos = transform.position;
+           keyPrefab.gameObject.transform.position = posicionCarlos - new Vector3(0,1,0) ;
         //}
     }
 

@@ -22462,7 +22462,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _puertaopen
       value: 
-      objectReference: {fileID: 2023570302}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23827,6 +23827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRadius: 10
   keyPrefab: {fileID: 1548942194}
+  puerta: {fileID: 2023570307}
 --- !u!1001 &1594245829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36770,7 +36771,7 @@ GameObject:
   - component: {fileID: 2023570305}
   - component: {fileID: 2023570304}
   - component: {fileID: 2023570303}
-  - component: {fileID: 2023570302}
+  - component: {fileID: 2023570307}
   m_Layer: 0
   m_Name: cubo_abrirpuerta3
   m_TagString: Untagged
@@ -36778,19 +36779,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2023570302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2023570301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c624fa74eb97c4f4baa70e015271f7ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LaPuerta: {fileID: 1545554330}
 --- !u!65 &2023570303
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36877,6 +36865,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2023570307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023570301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2898c54ba8f0d647aaf4f81e167678d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LaPuerta: {fileID: 1545554330}
 --- !u!1001 &2034696020
 PrefabInstance:
   m_ObjectHideFlags: 0

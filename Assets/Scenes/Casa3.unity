@@ -24645,7 +24645,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9d8fca5f10d7a39499fd3b4bfcce6e40, type: 2}
+      objectReference: {fileID: 2100000, guid: 834ad8ed2f235d0438e87a93d0729ec0, type: 2}
     - target: {fileID: 6265976471008157074, guid: 17df84cd8974bf34b889eef27a06a5d8,
         type: 3}
       propertyPath: key
@@ -37109,12 +37109,12 @@ PrefabInstance:
     - target: {fileID: 1050609923422395474, guid: aff9f4bc2c7ced94d90c56f9b71e8378,
         type: 3}
       propertyPath: m_Range
-      value: 30
+      value: 25.58
       objectReference: {fileID: 0}
     - target: {fileID: 1050609923422395474, guid: aff9f4bc2c7ced94d90c56f9b71e8378,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 10.58
       objectReference: {fileID: 0}
     - target: {fileID: 1050609924002089585, guid: aff9f4bc2c7ced94d90c56f9b71e8378,
         type: 3}

@@ -81,16 +81,6 @@ using UnityEngine;
 //    }
 //}
 
-
-
-
-
-
-
-
-
-using UnityEngine;
-
 public class CarlosAppleKey : MonoBehaviour
 {
     public float detectionRadius = 5f;  // Radio de detección para la manzana

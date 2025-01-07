@@ -75,6 +75,7 @@ public class llave : MonoBehaviour
         {
 
             isPlayerNear = false;
+            Debug.Log("te fuite panamio");
         }
     }
 
